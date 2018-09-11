@@ -14,13 +14,13 @@
 # the points property for a win.
 class Team
   attr_reader :team_name, :players
-  attr_accessor :couch
+  attr_accessor :coach
 
-  def initialize(team_name, players, couch)
-    @points = 0
-    @team_name = team_name
+  def initialize(team_name, players, coach)             #Team.new is whats being initialized. So its being expected 3 functions**
+    @points = 0           # already got a value, so doesnt need an arguement passed in
+    @team_name = team_name              # @ means available everywhere
     @players = players
-    @couch = couch
+    @coach = coach
   end
 
   # def get_team_name
@@ -35,8 +35,8 @@ class Team
   #   return @couch
   # end
 
-  def change_couch(new_couch)
-    @couch = new_couch
+  def change_coach(new_coach)       # setter always takes in an arguement
+    @coach = new_coach
   end
 
   def add_players(new_player)
@@ -44,8 +44,8 @@ class Team
   end
 
   def checked_player(player_to_check)
-    for player in @players
-      if player == player_to_check
+    for player in @players              # loop
+      if player == player_to_check      # if
         return player
       end
     end
@@ -56,7 +56,7 @@ class Team
   def did_they_win(result)
     # has team won
     if result == true
-      @points +=1  
+      @points +=1
     end
   end
 end
